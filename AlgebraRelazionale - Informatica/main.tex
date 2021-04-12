@@ -1,0 +1,193 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage{hyperref}
+\usepackage{mathabx}
+
+\title{ALGEBRA RELAZIONALE - Informatica}
+\author{Simone Pozzebon}
+\date{}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \newpage
+    \newpage
+
+    \section{Definizione di Relazione}
+    \begin{center}
+        \textbf{RELAZIONE E' IL SOTTINSIEME DEL PRODOTTO \newline CARTESIANO ALL'INTERNO DELL'INSIEME
+    A1} \newline  
+        \[R \epsilon {a1, a2,...an} | a1 \epsilon A1 \vee i=1...n\] \newline
+    \end{center}
+    \begin{itemize}
+        \item Ai = i-esimo dominio della relazione;
+        \item n  = numero dei \textbf{domini} = grado della relazione;
+        \item /R/ = \textbf{cardinalita'} della relazione = numero di n-uple di R
+    \end{itemize}
+    
+    \subsection{OGNI ELEMENTO DI R - RELAZIONE}
+    \begin{itemize}
+        \item e' ELEMENTO
+        \item e' ELEMENTO DI UN INSIEME
+        \item e' ENTITA'
+    \end{itemize}
+    
+    \begin{center}
+        \begin{table}[h]
+            \begin{tabular}{|c|c|c|ll}
+            \cline{1-3}
+            \textbf{ENTITA'} & \textbf{CODD / RELAZIONE}      & \textbf{TABELLA}                  &  &  \\ \cline{1-3}
+            N. Attributi     & Grado relazione         & N.Colonne/ N. Campi del tracciato &  &  \\ \cline{1-3}
+            Istanza          & N-upla                  & Riga/Record                       &  &  \\ \cline{1-3}
+            N.Istanze        & Cardinalita'/N.Elementi & N.Righe/N.Record                  &  &  \\ \cline{1-3}
+            \end{tabular}
+            \end{table}
+    \end{center}
+
+    \section{VINCOLI DELLE N-UPLE}
+    \begin{enumerate}
+        \item \textbf{Stesso numero di elementi.} Le righe della tabella devono avere lo stesso numero di colonne. In caso contrario si inseriscono dati NULL;
+        \item Per ogni elemento di n-upla \textbf{ci sono valori OMOGENEI, dello stesso DOMINIO}
+        \item R \textbf{ NON PUO' AVERE} elementi ripetuti. Di conseguenza diventa necessario l'utilizzo della CHIAVE PRIMARIA. 
+        \item Non e' obbligatorio avere righe ordinate nella tabella. Non e' quindi necessario avere nessun vincolo costruttivo.
+        \item Ogni attributo deve rappresentare informazioni \textbf{elementari/atomiche}. \newline
+        \begin{enumerate}
+            \item Se un attributo e' composto allora sara' necessario scomporlo;
+            \item Se un campo contiene piu' elementi allora e' necessario creare una nuova tabella connessa alla prima tramite CHIAVE ESTERNA
+        \end{enumerate}
+    \end{enumerate}
+    
+   \section{Operazioni di Algebra Lineare}
+   \subsection{Sigma - Decomposizione Orizzontale}
+   \textit{Corrispettivo dell'operazione di SELECT}
+   \paragraph{Sigma in R \\ Applico l'operazione di selezione su una relazione ed ottengo una nuova relazione R}
+
+   \subsection{PiGreco - Decomposizione Verticale}
+   \textit{Corrispettivo dell'operazione di SELECT DISTINCT}
+   \paragraph{PiGreco in R \\ Applico una proiezione su una relazione R ed ottengo una relazione R} 
+   
+   \subsection{Theta/Equal - Join}
+   \textit{Corrispettivo dell'unione di due tabelle}
+   
+   \subsection{Left/Inner/Outer/Right Join}
+   \textit{Altri differenti tipi di join, considerabili in base all'ordine di lettura della tabella.}
+   
+   \section{Integrita' dei dati}
+   I dati devono essere:
+   \subsection{I} 
+   \begin{itemize}
+       \item \textit{Validi e consistenti}: chiavi usate in maniera corretta.
+       \item \textit{Integrita' referenziale}: la coerenza tra le tabelle accoppiate con una chiave primaria/secondaria.
+   \end{itemize}
+   \subsection{II Vincoli}
+   \begin{itemize}
+       \item \textit{Entita'}
+       \begin{itemize}
+           \item Univocita' dell'enupla, esiste ed e' unica.
+           \item Vincoli di dominio, tipi di dati corretti secondo vincoli di dominio specifici.
+           \item Vincoli di tuple.
+       \end{itemize}
+       \item \textit{Integrita' referenziale}
+       \begin{itemize}
+           \item Per ogni valore della chiave esterna, qualora diversa da NULL, deve esistere un valore di PK nella tabella corrispondente.
+       \end{itemize}
+   \end{itemize}
+   \subsection{III Cosa arreca danni?}
+   \begin{itemize}
+       \item Inserimento
+       \item Modifica
+       \item Cancellazione
+   \end{itemize}
+   
+   \subsection{IV Regole \textit{Inserimento}}
+   \begin{itemize}
+       \item Dipendente
+       \item Automatico
+       \item Nullo
+       \item Di Default
+       \item Sempre Permesso
+   \end{itemize}
+  
+   \subsection{V Regole \textit{Modifica}}
+   \begin{itemize}
+       \item Con Restrizione
+       \item A Cascata
+       \item Nullo
+       \item Di Default
+       \item Sempre Permesso
+   \end{itemize}
+   
+   \subsection{VI Regole \textit{Cancellazione}}
+   \begin{itemize}
+       \item Con Restrizione
+       \item A Cascata
+       \item Nullo
+       \item Di Default
+       \item Sempre Permesso
+   \end{itemize}
+   
+   \section{Dipendenze, Anomalie, Normalizzazione}
+   \subsection{Dipendenze Funzionali}
+   \begin{center}
+       Data una relazione \textbf{\underline{R}}, una colonna \textbf{\underline{Y}} della relazione,\\ si dice \textbf{funzionalmente dipendente dalla colonna \underline{X}} \\ SE dato un valore di \textbf{\underline{X}} si risce a determinare \textbf{\underline{Y}}.\\
+       X \( \rightarrow \) (implica) Y \\
+    \end{center} 
+    
+    Il concetto DESCRIVE \underline{dei legami di tipo funzionale} tra attributi di una stessa relazione. \\
+   \begin{enumerate}
+       \item cognome
+       \item nome
+       \item indirizzo
+       \item \textbf{codice fiscale} \(\leftarrow\) dipendenza \textbf{funzionale}.\\ Riesco a determinare tutti gli altri valori. 
+   \end{enumerate}
+   
+   Le dipendenze funzionali \textit{implicano} ridondanza, perdendo cosi' la \textit{coerenza} dei dati.
+   
+   \subsection{Anomalie, con operazioni di manipolazione.}
+   \subsubsection{INSERIMENTO}
+   \begin{enumerate}
+       \item Ridondanza
+       \item Attesa per l'inserimento non sapendo tutti i dati corretti
+   \end{enumerate}
+   \subsubsection{CANCELLAZIONE}
+   \begin{enumerate}
+       \item Se cancellando un record sono costretto a cancellare ulteriori informazioni correlate
+   \end{enumerate}
+   \subsubsection{AGGIORNAMENTO}
+   \begin{enumerate}
+       \item Se aggiornando un record sono costretto ad aggiornare altrettanti record correlati
+   \end{enumerate}
+   \subsection{Normalizzazione}
+   \subsection{Prima Forma Normale -\textit{ Vincoli di N-Uple}}
+   \begin{enumerate}
+       \item Tutte le n-uple devono avere lo stesso numero di elementi
+       \item Per ogni i-esimo elemento di un n-upla vi sono valori omogenei appartenenti allo stesso dominio
+      \item R deve avere elementi tutti diversi, non ripetuti
+      \item Le n-uple non devono essere necessariamente ordinate
+      \item Gli attributi devono rappresentare informazioni atomiche
+      \begin{enumerate}
+          \item Gli attributi devono rappresentare informazioni elemantari
+          \item Se un attributo contiene piu' informazioni, deve essere creata una nuova relazione\textit{ (Chiave Esterna)}
+      \end{enumerate}
+   \end{enumerate}
+   \subsubsection{Seconda Forma Normale - \textit{Chiave Esterna}}
+   \begin{enumerate}
+       \item \textit{Deve} essere in \textbf{Prima Normale} 
+       \item I suoi attributi \textit{non chiave} dipendono dalla \textit{chiave composta intera}
+   \end{enumerate}
+   \subsubsection{Terza Forma Normale - \textit{Dipendenze Transitive}}
+   \begin{enumerate}
+       \item \textit{Deve} essere in \textbf{Seconda Normale}
+       \item I suoi attributi \textit{non chiave} dipendono dalla \textit{chiave composta intera}
+       \item \(\forall\) dipendenza funzionale \textit{X - Y} \textbf{almeno} una delle seguenti condizioni e' verificata
+       \begin{itemize}
+           \item X  \textbf{contiene} una chiave
+           \item Ogni attributo Y \textbf{e' contenuto} in una chiave
+       \end{itemize}
+   \end{enumerate}
+
+\subsubsection{Forma Normale di Boyce - Codd - \textit{Non sempre raggiungibile}}
+\begin{enumerate}
+    \item \textit{Deve} essere in \textbf{Seconda Normale}
+    \item \(\forall\) dipendenza funzionale \textit{X} e' una chiave \textit{superchiave}
+\end{enumerate}
+\end{document}
