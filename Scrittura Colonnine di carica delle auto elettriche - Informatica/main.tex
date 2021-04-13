@@ -1,0 +1,112 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Ministero dell’Istruzione, dell’Università e della Ricerca}
+\rfoot{Page \thepage}
+
+\author{Simone Pozzebon}
+\date{}
+\title{ESAME DI STATO DI ISTRUZIONE \\ SECONDARIA SUPERIORE}
+
+\begin{document}
+\maketitle
+\newpage
+\textbf{Indirizzo:}
+\begin{itemize}
+\item [] ITIA - INFORMATICA 
+\item [] TELECOMUNICAZIONI ARTICOLAZIONE INFORMATICA
+\end{itemize}
+
+\textbf{Tema di:} INFORMATICA e SISTEMI E RETI \\ \\
+\begin{center}
+\textbf{Il candidato svolga la prima parte della prova e due tra i quesiti
+proposti nella seconda parte.}
+\end{center}
+
+\section{\textbf{PRIMA PARTE}}
+L' azienda "easyCharge" si occupa di fornire su tutto il territorio italiano
+colonnine di ricarica per autovetture elettriche. 
+
+L'utente puo' quindi accedere al servizio mediante una tessera reperibile
+attraverso un portale web. L'utente necessita solamente di un indirizzo 
+email valido o eventualmente una carta di pamento prepagata.
+
+Una volta forniti i dati il portale richiede l'inserimento di un codice di 
+verifica precedentemente inviato all'indirizzo email assegnato; se tutte le 
+informazioni coincidono, l'utente verra' loggato nel sito. 
+
+L'utente puo' dunque scegliere che tipo di contratto sottoscrivere con l'
+azienda. Il \textit{premium} permette di avere accesso illimitato alle colonnine,
+in qualunque momento e senza limiti di tempo, in cambio di un pagamento
+mensile variabile in base al comune di installazione del servizio. \\
+Il contratto \textit{non premium gratuito} limita l'accesso al servizio a sole
+50 ore di ricarica settimanali. \\
+Le operazioni di pagamento sono totalmente gestite e 
+tutelate da PayPal.
+
+Per avviare il servizio la colonnina necessita di un codice univoco per 
+identificare l'utente, cio' avviene grazie a un lettore bar-code, l'utente 
+trova il codice a barre scaricabile direttamente nella propria area personale nel 
+portale web.
+
+La distribuzione delle colonnine di ricarica sul territorio e' capillare, in
+ogni comune l'azienda fornisce una postazione ogni 10 autovetture elettriche 
+registrate alla motorizzazione.
+
+Le informazioni di fatturazione e statistiche di utilizzo di ogni comune fanno
+riferimento a un server regionale che, a sua volta elabora e fornisce 
+i dati all'azienda.
+
+Ogni colonnina in funzione (si considera tale quando eroga energia in seguito a
+un' attivazione del servizio da parte di un \textit{utente registrato 
+e verificato}) invia al server di riferimento un token (Id univoco di ogni 
+postazione) ogni mezz'ora.\\ Questa operazione viene svolta per controllare
+l'utilizzo medio di ogni colonnina ed evitare problemi di dispersione
+energetica.
+
+L'azienza fornisce anche un'applicazione mobile, disponibile solo nel
+piano \textit{premium} che permette all'utente di controllare le proprie
+statistiche di utilizzo e di avviare il servizio sfruttando la connessione NFC
+del dispositivo (ove disponibile) senza ricorrere dunque al bar-code.
+
+Il candidato analizzi la realtà di riferimento e, fatte le opportune ipotesi 
+aggiuntive, individui una
+soluzione che a suo motivato giudizio sia la più idonea 
+per svilupparei seguenti punti: 
+
+\begin{itemize}
+\item Considerazioni e accorgimenti riguardo:
+\begin{enumerate}
+\item L'infrastruttura che mette in comunicazione le colonnine, eventualmente
+mediante grafici e rappresentazioni concettuali;
+\item Le decisioni hardware e software da attuare per garantire 
+un livello il piu' elevato possibile di velocita' e sicurezza nelle transizioni
+economiche per l'abilitazione del servizio, facendo particolare attenzione
+alla tutela delle informazioni inserite sul portale web o sull'applicazione 
+mobile;
+\item Il sistema DBMS per la gestione delle informazioni dinamiche e statiche
+nell'infrastruttura. Diagramma ER e Schema Logico;
+\end{enumerate}
+\item La codifica in linguaggio SQL delle seguenti interrogazioni:
+\begin{enumerate}
+\item L'elenco degli utenti premium presenti in un determinato comune;
+\item Il conteggio delle colonnine in funzione in una determinata fascia oraria;
+\item L'elenco di tutte le autovetture elettriche presenti sul territorio 
+italiano al momento del censimento (1 colonnina per ogni 10 autovetture);
+\end{enumerate}
+\end{itemize}
+\section{\textbf{SECONDA PARTE}} 
+\begin{enumerate}
+\item Il candidato e' stato assunto come sviluppatore da "easyCharge" per 
+migliorare l'applicazione mobile. E' quindi richiesta l'integrazione di una 
+funzionalita' per localizzare le colonnine in funzione nelle vicinanze (GPS
+tracking) per visualizzare quelle con carico minore (minore quantitativo di
+energia erogato in maggior tempo);
+\item Si progettino il form di login, logout e sign up per il portale web;
+\item Si progettino il form per la gestione delle transazioni online, integrando
+le componenti necessarie per cifrare la comunicazione.
+\end{enumerate}
+\end{document}
+
